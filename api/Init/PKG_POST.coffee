@@ -20,7 +20,6 @@
 
     if not existsSync join dir,'post.js'
       continue
-
     out = t = {}
     li = pkg.split('.')
     li0 = li[0]
