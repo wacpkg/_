@@ -3,13 +3,19 @@
 > ./conf > PWD
   path > join
   @w5/write
+  @w5/sleep
   @w5/pg/PG > Q
 
 < default main = =>
+  n = 9
+  while --n
+    li = []
+    for [oid,name] from await Q"select oid,typname from pg_type where typname in ('u64','u32','u16','u8')".values()
+      li.push [oid,name]
+    if li.length
+      break
+    await sleep 999
 
-  li = []
-  for [oid,name] from await Q"select oid,typname from pg_type where typname in ('u64','u32','u16','u8')".values()
-    li.push [oid,name]
   li.sort()
   fp = join(PWD, '..', 'PG_UINT.js')
   console.log fp
