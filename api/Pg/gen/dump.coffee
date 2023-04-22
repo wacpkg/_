@@ -1,8 +1,8 @@
 #!/usr/bin/env coffee
 
 > !/_pkg > PKG_YML MOD PROJECT
-  _/Pg/PG_URI
-  _/Pg > LI0
+  @w5/pg/PG/PG_URI
+  @w5/pg/PG > LI0
   fs > existsSync mkdirSync
   path > join dirname
   @w5/read

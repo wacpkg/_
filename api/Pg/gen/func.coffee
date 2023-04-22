@@ -34,7 +34,7 @@ dumpFunc = (pkg, schema)=>
     out = [
       '''// NOT EDIT : use sh/gen/sql_func.coffee gen
 
-      import {UNSAFE} from '_/Pg'
+      import {UNSAFE} from '@w5/pg/PG'
       '''
     ]
 
