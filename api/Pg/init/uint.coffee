@@ -10,7 +10,7 @@
   n = 9
   while --n
     li = []
-    for [oid,name] from await Q"select oid,typname from pg_type where typname in ('u64','u32','u16','u8')".values()
+    for [oid,name] from await Q"select oid,typname from pg_type where typname in ('u64','u32','u16','u8','i8')".values()
       li.push [oid,name]
     if li.length
       break
