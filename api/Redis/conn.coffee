@@ -1,7 +1,7 @@
 #!/usr/bin/env coffee
 
 > @w5/ru > Redis serverHostPort serverCluster
-  prexit
+  @w5/onexit
   ./CONF > REDIS_DB REDIS_PASSWORD REDIS_USER REDIS_HOST_PORT
 
 redis = await Redis(
@@ -11,8 +11,6 @@ redis = await Redis(
   REDIS_PASSWORD
 )
 
-prexit =>
-  await redis.quit()
-  return
+onexit redis.quit
 
 < default redis
