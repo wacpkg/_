@@ -12,7 +12,6 @@
 if DEBUG
   chalk = (await import('chalk')).default
   {blue} = chalk
-
   pprint = (prefix, o)=>
     for [k,v] from o.entries o
       if Array.isArray v
@@ -25,9 +24,13 @@ if DEBUG
         pprint(prefix+k+'.',v)
     return
 
-  pprint '',(await import('./MAP.js')).default
-
   await import('@w5/console/global.js')
+  import('./MAP.js').then(
+    ({default:map})=>
+      pprint '',map
+      return
+  )
+
 
 WORKER = []
 EVENT_EXP = ['error','exit']

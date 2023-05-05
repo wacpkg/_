@@ -21,7 +21,6 @@ host_port = (s)=>
 
 < REDIS_HOST_PORT = do =>
   {HOST_PORT} = CONF
-  console.log HOST_PORT
   li = HOST_PORT.split(' ')
 
   if li.length == 1

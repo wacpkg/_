@@ -13,7 +13,6 @@
 
 < default main = (pkg=PKG)=>
   for mod from pkg
-
     fp = join ROOT,mod,'init.yml'
     if not existsSync fp
       continue

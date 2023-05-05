@@ -7,7 +7,6 @@ obj2map = (obj, chain)=>
     map.set k, if v instanceof Function then [v,chain] else obj2map(v,chain)
   map
 
-
 MAP = obj2map POST, [
   (o)=>
     if o != undefined then pack(o) else ''
