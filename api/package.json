@@ -6,6 +6,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "@w5/onexit": "^0.0.3",
     "@w5/stream_buffer": "^0.0.1"
   }
 }
