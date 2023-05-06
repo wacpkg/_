@@ -13,6 +13,5 @@ redis = await Redis(
 
 onexit =>
   redis.quit()
-  return
 
 < default redis
