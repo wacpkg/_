@@ -2,8 +2,8 @@
   ./Focus.js
 
 < (form)=>
-  focus = Focus form
   _focus = =>
+    focus = Focus form
     setTimeout(
       focus
       500
