@@ -4,6 +4,7 @@
 < (form)=>
   _focus = =>
     focus = Focus form
+    focus()
     setTimeout(
       focus
       500
