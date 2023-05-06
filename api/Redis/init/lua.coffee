@@ -5,6 +5,7 @@
   fs > existsSync
   _/Redis:R
   path > join
+  @w5/utf8/utf8e.js
   @w5/ru > z85Dump
   !/PKG
   !/ROOT
@@ -18,7 +19,7 @@ bin2luaStr = (bin)=>
 hash = (bin)=>
   U8(await crypto.subtle.digest(
     name: "SHA-256"
-    bin
+    utf8e bin
   ))
 
 isFlags = (i)=>

@@ -18,9 +18,9 @@
       continue
     li = load fp
     for fp from li
-      fp = "/#{mod}/init/#{fp}"
-      console.log yellowBright mod+fp
-      {default:m} = await import('!'+fp)
+      fp = "!/#{mod}/init/#{fp}"
+      console.log yellowBright fp
+      {default:m} = await import(fp)
       await m()
   return
 

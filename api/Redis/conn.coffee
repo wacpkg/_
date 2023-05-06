@@ -11,6 +11,8 @@ redis = await Redis(
   REDIS_PASSWORD
 )
 
-onexit redis.quit
+onexit =>
+  redis.quit()
+  return
 
 < default redis
