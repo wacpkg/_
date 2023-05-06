@@ -4,7 +4,7 @@
   =>
     li = [...byTag(elem, 'input')].filter(
       (i)=>
-        ['text','password'].includes(
+        ['email', 'text','password'].includes(
           i.type
         ) && !i.disabled
     )
