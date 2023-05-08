@@ -7,10 +7,7 @@ export SK = await R.hgetB R_CONF,'SK'
 
 _code = (hour, args)=>
   msg = pack args.concat [hour]
-  xxh3B36(
-    msg
-    SK
-  )
+  xxh3B36 msg,SK
 
 < skCode = (args...)=>
   _code(
