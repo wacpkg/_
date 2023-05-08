@@ -1,7 +1,7 @@
 #!/usr/bin/env coffee
 
 > _/Redis > R R_CONF
-  @w5/ru > randomBytes
+  @w5/lib > randomBytes
 
 < default main = =>
   console.log '>1'

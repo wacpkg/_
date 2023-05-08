@@ -6,7 +6,7 @@
   _/Redis:R
   path > join
   @w5/utf8/utf8e.js
-  @w5/ru > z85Dump
+  @w5/lib > z85Dump
   !/PKG
   !/ROOT
 

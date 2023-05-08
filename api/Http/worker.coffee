@@ -1,7 +1,7 @@
 > ./HEADER.js
   ./MAP.js
   @w5/console/global.js
-  @w5/ru > tld
+  @w5/lib > tld
   @w5/assign
   @w5/stream_buffer
   worker_threads > parentPort

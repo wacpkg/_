@@ -1,4 +1,4 @@
-> @w5/ru > randomBytes cookieDecode cookieEncode xxh64 ipBin zipU64 unzipU64
+> @w5/lib > randomBytes cookieDecode cookieEncode xxh64 ipBin zipU64 unzipU64
   @w5/u8 > U8 u8eq u8merge
   _/Core/sk > SK
   _/Sql/clientNew
