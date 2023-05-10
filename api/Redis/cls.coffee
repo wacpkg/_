@@ -22,6 +22,8 @@ key = (prefix)=>
 
 
 < (redis, lua)=>
+  for i of redis.constructor::
+    redis[i] = redis[i].bind redis
 
   proxy_get = (rtype, func)=>
     f = redis[rtype].bind(redis, func)

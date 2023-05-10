@@ -14,10 +14,10 @@ $ = cls conn,lua
 
 do =>
   for [k,v] from Object.entries KEY
-    {bind} = v
-    if bind
-      delete v.bind
-      $ v,bind
+    {func} = v
+    if func
+      delete v.func
+      $ v,func
   return
 
 export * from './pkg/key'

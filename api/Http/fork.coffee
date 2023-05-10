@@ -35,7 +35,7 @@ INTERVAL = setInterval(
             if ING == 0
               exit()
             else
-              console.warn 'memoryUsage', used, 'leak', diff, 'ING', ING, 'wait auto exit'
+              console.log 'memoryUsage', used, 'leak', diff, 'ING', ING, 'wait auto exit'
             return
           3e3
         )
@@ -49,7 +49,7 @@ INTERVAL = setInterval(
 
 next = (msg)=>
   if DEBUG
-    console.warn 'recv TIMEOUT_COUNT='+TIMEOUT_COUNT,'ING='+ING,msg
+    console.log 'recv TIMEOUT_COUNT='+TIMEOUT_COUNT,'ING='+ING,msg
   if Array.isArray msg
     ++TIMEOUT_COUNT
     ++ING

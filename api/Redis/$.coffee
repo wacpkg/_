@@ -19,7 +19,8 @@ wrap = (...args)=>
     SET.add(r)
 
   if args[1]
-    r.bind = args[1]
+    r.func = args[1]
+
   r
 
 < new Proxy(
