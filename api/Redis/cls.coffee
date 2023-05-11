@@ -1,7 +1,7 @@
 > @w5/u8 > u8merge U8
   @w5/utf8/utf8e.js
-  @w5/dot
   _/Http/CONF.js > DEBUG
+  @w5/redis_lua/dot_bind.js
 
 _prefix = (prefix, f)=>
   (k, args...)=>
@@ -26,27 +26,7 @@ key = (prefix)=>
   for i of redis.constructor::
     redis[i] = redis[i].bind redis
 
-  proxy_get = (rtype, func)=>
-    f = redis[rtype].bind(redis, func)
-    (keys...)=>
-      (args...)=>
-        f(keys,args)
-
-  if DEBUG
-
-    _proxy_get = proxy_get
-
-    proxy_get = (rtype, func)=>
-      if func of redis
-        throw new Error("R.#{func} exist")
-      _proxy_get rtype, func
-
-  lua(
-    dot (rtype)=>
-      dot (func)=>
-        proxy_get(rtype, func)
-    redis
-  )
+  lua DotBind redis
 
   (prefix, bind)=>
     if bind
