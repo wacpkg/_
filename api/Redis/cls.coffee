@@ -1,5 +1,6 @@
 > @w5/u8 > u8merge U8
   @w5/utf8/utf8e.js
+  @w5/dot
   _/Http/CONF.js > DEBUG
 
 _prefix = (prefix, f)=>
@@ -41,15 +42,9 @@ key = (prefix)=>
       _proxy_get rtype, func
 
   lua(
-    new Proxy(
-      {}
-      get:(self, rtype)=>
-        new Proxy(
-          {}
-          get: (_, func)=>
-            proxy_get(rtype, func)
-        )
-    )
+    dot (rtype)=>
+      dot (func)=>
+        proxy_get(rtype, func)
     redis
   )
 
