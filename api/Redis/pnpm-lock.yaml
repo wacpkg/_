@@ -5,8 +5,8 @@ dependencies:
     specifier: ^0.0.3
     version: 0.0.3
   '@w5/redis_lua':
-    specifier: ^0.0.8
-    version: 0.0.8
+    specifier: ^0.0.9
+    version: 0.0.9
 
 packages:
 
@@ -25,8 +25,8 @@ packages:
       '@w5/xedis': 0.0.12
     dev: false
 
-  /@w5/redis_lua@0.0.8:
-    resolution: {integrity: sha512-5LjjcF54ykb0oiAbQga9UDBwfnC5PLi5g1MG5rlVrMPQttwdp8APR+JCKIrOQP7HGbeJG59fm6GzPZqTmTaO1Q==}
+  /@w5/redis_lua@0.0.9:
+    resolution: {integrity: sha512-8JnwlM1UxX85bKsgQmklcEvQRF0pAM5PGwBi7EZ9qFcMW4FsmwTPrcOqv7qgtJZz0S9G1IZNRmtZ7S0uV6EB6Q==}
     dependencies:
       '@w5/dot': 0.0.2
       '@w5/u8': 0.0.1

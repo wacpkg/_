@@ -6,6 +6,6 @@
   },
   "dependencies": {
     "@w5/redis": "^0.0.3",
-    "@w5/redis_lua": "^0.0.8"
+    "@w5/redis_lua": "^0.0.9"
   }
 }
