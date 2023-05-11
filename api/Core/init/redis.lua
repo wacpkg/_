@@ -143,7 +143,3 @@ function ztouchXx(keys, args)
   _ztouch(ZADD_XX, keys, args)
 end
 
-function ver()
-  -- flags no-writes
-  return "VERSION"
-end

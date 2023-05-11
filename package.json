@@ -2,5 +2,6 @@
   "type": "module",
   "devDependencies": {
     "@w5/loader": "^0.0.3"
-  }
+  },
+  "dependencies": {}
 }

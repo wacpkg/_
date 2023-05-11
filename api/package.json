@@ -4,6 +4,7 @@
     ".": "./index.js",
     "./*": "./*"
   },
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "@w5/redis_lua": "^0.0.7"
+  }
 }
