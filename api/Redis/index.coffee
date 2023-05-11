@@ -2,16 +2,15 @@
 
 > ./lua
   ./cls
-  ./conn
+  @w5/redis
 
 import * as KEY from './pkg/key'
 
-$ = cls conn,lua
+< R = await redis()
 
-< R = conn
+$ = cls R,lua
 
-< default R
-
+# 绑定redis键的前缀
 do =>
   for [k,v] from Object.entries KEY
     {func} = v
@@ -21,3 +20,5 @@ do =>
   return
 
 export * from './pkg/key'
+
+< default R
