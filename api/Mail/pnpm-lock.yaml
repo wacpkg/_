@@ -2,12 +2,12 @@ lockfileVersion: '6.0'
 
 dependencies:
   nodemailer:
-    specifier: ^6.9.1
-    version: 6.9.1
+    specifier: ^6.9.2
+    version: 6.9.2
 
 packages:
 
-  /nodemailer@6.9.1:
-    resolution: {integrity: sha512-qHw7dOiU5UKNnQpXktdgQ1d3OFgRAekuvbJLcdG5dnEo/GtcTHRYM7+UfJARdOFU9WUQO8OiIamgWPmiSFHYAA==}
+  /nodemailer@6.9.2:
+    resolution: {integrity: sha512-4+TYaa/e1nIxQfyw/WzNPYTEZ5OvHIDEnmjs4LPmIfccPQN+2CYKmGHjWixn/chzD3bmUTu5FMfpltizMxqzdg==}
     engines: {node: '>=6.0.0'}
     dev: false
