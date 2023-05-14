@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@w5/redis':
-    specifier: ^0.0.8
-    version: 0.0.8
+    specifier: ^0.0.13
+    version: 0.0.13
   '@w5/redis_lua':
     specifier: ^0.0.9
     version: 0.0.9
@@ -18,8 +18,8 @@ packages:
     resolution: {integrity: sha512-uXEvVXgEStwO7JtJOJE4rUAcLn7Uf3gUCAcCvls0koPQKXALq40ptJTcNeEmUlya4wNj2OUmbA1zVxMtdWj5yA==}
     dev: false
 
-  /@w5/redis@0.0.8:
-    resolution: {integrity: sha512-4omV9Lw9ak+5V8YoKShaWFoJmx/LBPeqozpX5IP6hZUraJN/LKgtLEJnJNNj8hiMxjCyqntelcwiZjtCsqdC9g==}
+  /@w5/redis@0.0.13:
+    resolution: {integrity: sha512-Q8sEaUMXUmujcapJrh7CG6HyP5B4zBFTyfKNgXowNuyGivG1Hr9W19aZJgQZHeBDCZMgAmf3IG8Tobz+S4UIpA==}
     dependencies:
       '@w5/onexit': 0.0.4
       '@w5/xedis': 0.0.20

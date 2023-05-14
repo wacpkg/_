@@ -2,12 +2,11 @@
 
 > ./lua
   ./cls
-  @w5/redis
+  @w5/redis/R.js:_R
 
 import * as KEY from './pkg/key'
 
-< R = await redis()
-
+export R=_R
 $ = cls R,lua
 
 # 绑定redis键的前缀
