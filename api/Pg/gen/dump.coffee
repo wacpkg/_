@@ -1,7 +1,6 @@
 #!/usr/bin/env coffee
 
 > !/_pkg > PKG_YML MOD PROJECT
-  @w5/pg/PG/PG_URI
   @w5/pg/PG > LI0
   fs > existsSync mkdirSync
   path > join dirname
@@ -14,13 +13,13 @@ CREATE_KIND = [
   'TABLE'
   'SEQUENCE'
 ]
-
+{ PG_URI } = process.env
 dump = (dir, schema)=>
   to = join PROJECT,'src',dir,'Sql'
   if not existsSync to
     mkdirSync to
   out = "#{to}/#{schema}.sql"
-  await $"pg_dump #{PG_URI} --no-owner --no-acl -s -n #{schema} -f #{out}"
+  await $"pg_dump postgres://#{PG_URI} --no-owner --no-acl -s -n #{schema} -f #{out}"
   sql = read(out).split('\n').filter(
     (i)=>
       i and not i.startsWith('--')
