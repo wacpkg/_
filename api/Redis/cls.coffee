@@ -1,7 +1,6 @@
 > @w5/u8 > u8merge U8
   @w5/utf8/utf8e.js
   _/Http/CONF.js > DEBUG
-  @w5/redis_lua/dot_bind.js
 
 _prefix = (prefix, f)=>
   (k, args...)=>
@@ -26,7 +25,7 @@ key = (prefix)=>
   for i of redis.constructor::
     redis[i] = redis[i].bind redis
 
-  lua DotBind redis
+  lua redis
 
   (prefix, bind)=>
     if bind

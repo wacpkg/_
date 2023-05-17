@@ -1,8 +1,8 @@
 > ./pkg/lua
+  @w5/redis_lua/dot_bind.js
 
-> @w5/u8 > U8
-
-< (R, redis)=>
+< (redis)=>
+  R = DotBind(redis)
   for f from lua
     f R,redis
   return
