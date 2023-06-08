@@ -3,6 +3,6 @@
 ```
 export const {
   R_CONF,
-  R_ID
 } = $
 ```
+# R_ID
