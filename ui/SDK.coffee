@@ -2,6 +2,7 @@
   ./gen/sdkThrow.js
   ./CDN.js > set:cdnSet
   ./lang.js:@ > HOOK
+  !/DEV
 
 [proxy, sdkInit, setLang] = sdk(
   (r, next, url, req_option)=>
@@ -21,6 +22,9 @@
   sdkInit(api_url, lang())
   HOOK.add setLang
   return
+
+if DEV
+  window.SDK = proxy
 
 < default proxy
 
