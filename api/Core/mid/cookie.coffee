@@ -4,8 +4,7 @@
   _/Sql/clientNew
   _/Redis/ID
 
-{CLIENT_ID} = ID
-
+{client:clientId} = ID
 
 + DAY, PRE_DAY
 
@@ -35,7 +34,7 @@ _set = (client_id)->
   return
 
 _new = ->
-  client_id = await CLIENT_ID()
+  client_id = await clientId()
 
   clientNew(
     client_id
