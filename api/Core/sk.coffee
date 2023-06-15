@@ -1,4 +1,4 @@
-> @w5/msgpack > pack unpack
+> @w5/msgpack > pack
   _/Redis > R R_CONF
   @w5/lib > xxh3B36
   @w5/time > Hour

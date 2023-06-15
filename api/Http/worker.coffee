@@ -4,7 +4,6 @@
   @w5/lib > tld
   @w5/assign
   @w5/stream_buffer
-  msgpackr > unpack
   worker_threads > parentPort
   zlib > createBrotliCompress
   ./CONF.js > HOST
@@ -60,7 +59,7 @@ funcByUrl = (url)=>
     loop
       try
         if body.length
-          r = unpack body
+          r = JSON.parse body
       catch
         code = 500
         body = "NOT MSGPACK : #{body}"
