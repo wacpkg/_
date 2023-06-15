@@ -4,6 +4,7 @@
   @w5/lib > tld
   @w5/assign
   @w5/stream_buffer
+  msgpackr > unpack
   worker_threads > parentPort
   zlib > createBrotliCompress
   ./CONF.js > HOST
@@ -59,10 +60,10 @@ funcByUrl = (url)=>
     loop
       try
         if body.length
-          r = JSON.parse body
+          r = unpack body
       catch
         code = 500
-        body = "NOT JSON : #{body}"
+        body = "NOT MSGPACK : #{body}"
         break
 
       origin = tld origin
