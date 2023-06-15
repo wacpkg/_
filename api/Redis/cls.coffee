@@ -4,9 +4,7 @@
 
 _prefix = (prefix, f)=>
   (k, args...)=>
-    if (
-      (typeof(k) == 'string') or k instanceof String
-    )
+    if k.constructor == String
       k = utf8e k
     k = u8merge prefix, k
     f(
