@@ -10,7 +10,7 @@
   ./Err.js > HttpErr
   !/MID.js
 
-compress = (code,support_br,body,res_headers)=>
+compress = (code,support_br,body,header)=>
   if body
     {length} = body
     if length > 512
@@ -20,12 +20,12 @@ compress = (code,support_br,body,res_headers)=>
         s.end(body)
         body = await result
         length = body.length
-        res_headers['Content-Encoding'] = 'br'
+        header['Content-Encoding'] = 'br'
   else
     length = 0
   [
     code
-    res_headers
+    header
     body
   ]
 
@@ -50,7 +50,7 @@ funcByUrl = (url)=>
 < ([url,body,ip,protocol,origin,referer,host,lang,I,agent,type,support_br])=>
   + body
 
-  res_headers = {...HEADER}
+  header = {...HEADER}
 
   f = funcByUrl url
   if f
@@ -77,15 +77,10 @@ funcByUrl = (url)=>
         lang
         url
         agent
+        header
       }
       if type
         self.type = type
-      req = new Proxy(
-        self
-        set:(_,k,v)=>
-          res_headers[k]=v
-          true
-      )
       try
         for mid from MID
           mr = await mid.call req
@@ -125,5 +120,5 @@ funcByUrl = (url)=>
     code = 404
     body = '404 : '+url
 
-  compress(code,support_br,body,res_headers)
+  compress(code,support_br,body,header)
 

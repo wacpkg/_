@@ -31,7 +31,7 @@ _set = (client_id)->
   p = host.indexOf ':'
   if p > 0
     host = host[...p]
-  @['Set-Cookie'] = "I=#{cookie};max-age=99999999;domain=#{host};path=/;HttpOnly;SameSite=None;Secure"
+  @header['Set-Cookie'] = "I=#{cookie};max-age=99999999;domain=#{host};path=/;HttpOnly;SameSite=None;Secure"
   return
 
 _new = ->
