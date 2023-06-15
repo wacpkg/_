@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 devDependencies:
   '@w5/sdk':
-    specifier: ^0.0.2
-    version: 0.0.2
+    specifier: ^0.0.3
+    version: 0.0.3
   radix-64:
     specifier: ^1.0.4
     version: 1.0.4
@@ -58,10 +58,10 @@ packages:
     dev: true
     optional: true
 
-  /@w5/sdk@0.0.2:
-    resolution: {integrity: sha512-EoRwYIdOSWHbZZlb8HOacgjwazbWe1lOUwCAZJVAmR2lApRzj2WN73bozG7gMZmHcEJ6XZUr9HBIWsgei919uQ==}
+  /@w5/sdk@0.0.3:
+    resolution: {integrity: sha512-IZN9PuA02kDU+XOaRXhJ6kyYCDHAg8iwNg5nAdjPD43eWFPQMuqX8nY2YbJqan5ZQopPCso4p+FXPet8vC5/0Q==}
     dependencies:
-      msgpackr: 1.8.5
+      msgpackr: 1.9.5
     dev: true
 
   /msgpackr-extract@3.0.2:
@@ -80,8 +80,8 @@ packages:
     dev: true
     optional: true
 
-  /msgpackr@1.8.5:
-    resolution: {integrity: sha512-mpPs3qqTug6ahbblkThoUY2DQdNXcm4IapwOS3Vm/87vmpzLVelvp9h3It1y9l1VPpiFLV11vfOXnmeEwiIXwg==}
+  /msgpackr@1.9.5:
+    resolution: {integrity: sha512-/IJ3cFSN6Ci3eG2wLhbFEL6GT63yEaoN/R5My2QkV6zro+OJaVRLPlwvxY7EtHYSmDlQpk8stvOQTL2qJFkDRg==}
     optionalDependencies:
       msgpackr-extract: 3.0.2
     dev: true
