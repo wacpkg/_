@@ -83,17 +83,17 @@ funcByUrl = (url)=>
         self.type = type
       try
         for mid from MID
-          mr = await mid.call req
+          mr = await mid.call self
           if mr
             assign self, mr
 
         if r
           if Array.isArray r
-            body = func.apply(req, r)
+            body = func.apply(self, r)
           else
-            body = func.call(req, r)
+            body = func.call(self, r)
         else
-          body = func.call(req)
+          body = func.call(self)
         body = await body
         for f from f[1]
           body = f body
