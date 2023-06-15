@@ -2,7 +2,7 @@
   @w5/u8 > U8 u8eq u8merge
   _/Core/sk > SK
   _/Sql/clientNew
-  _/Redis/ID
+  @w5/redis/ID
 
 {client:clientId} = ID
 
