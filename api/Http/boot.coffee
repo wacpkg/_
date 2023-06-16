@@ -65,6 +65,7 @@ workerNew = (fp, id)=>
     }
   )
 
+  w.send id
   w.on 'message', (msg)=>
     console.log "<< on message", msg
     if Array.isArray msg

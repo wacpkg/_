@@ -8,20 +8,6 @@ _exit = =>
   process.kill(process.pid, "SIGINT")
   return
 
-exit = =>
-  clearInterval INTERVAL
-  process.send WORKER_ID
-  setInterval(
-    =>
-      if ING == 0
-        _exit()
-      else
-        console.log 'memoryUsage', used, 'leak', diff, 'ING', ING, 'wait auto exit'
-      return
-    3e3
-  )
-  return
-
 
 MAX_MEM_LEAK = 256
 {memoryUsage} = process
@@ -36,6 +22,7 @@ ING = 0
 # 定时任务: 没请求就退出，防止孤儿进程
 INTERVAL = setInterval(
   =>
+    console.log {WORKER_ID}
     if TIMEOUT_COUNT == 0
       exit()
     else
@@ -51,6 +38,21 @@ INTERVAL = setInterval(
     return
   4e4
 )
+
+exit = =>
+  clearInterval INTERVAL
+  process.send WORKER_ID
+  setInterval(
+    =>
+      if ING == 0
+        _exit()
+      else
+        console.log 'memoryUsage', used, 'leak', diff, 'ING', ING, 'wait auto exit'
+      return
+    3e3
+  )
+  return
+
 
 next = (msg)=>
   if DEBUG
@@ -74,6 +76,10 @@ next = (msg)=>
         exit()
   return
 
-process.on 'message',(msg)=>
-  next(msg)
+MESSAGE = 'message'
+process.on MESSAGE,(id)=>
+  WORKER_ID = id
+  console.log {WORKER_ID}
+  process.removeAllListeners MESSAGE
+  process.on MESSAGE, next
   return
