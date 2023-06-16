@@ -71,6 +71,7 @@ workerNew = (fp, id)=>
       ing.get(rid)[1](r)
       ing.delete rid
     else
+      console.log "fork exist", msg
       for i from EVENT_EXP
         w.removeAllListeners(i)
       WORKER[id] = undefined
@@ -131,6 +132,7 @@ u32_ver = (v)=>
 
             bin = (await StreamBuffer req).toString()
             worker_id = (N++)%CPU_NUM
+            console.log {worker_id}
             cookie = cookie2dict(req_headers['cookie'])
 
             {browser,os,device} = UaParse req_headers['user-agent']
