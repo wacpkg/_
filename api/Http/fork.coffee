@@ -4,9 +4,24 @@
 if DEBUG
   await import('@w5/console/global.js')
 
-exit = =>
+_exit = =>
   process.kill(process.pid, "SIGINT")
   return
+
+exit = =>
+  clearInterval INTERVAL
+  process.send WORKER_ID
+  setInterval(
+    =>
+      if ING == 0
+        _exit()
+      else
+        console.log 'memoryUsage', used, 'leak', diff, 'ING', ING, 'wait auto exit'
+      return
+    3e3
+  )
+  return
+
 
 MAX_MEM_LEAK = 256
 {memoryUsage} = process
@@ -28,17 +43,7 @@ INTERVAL = setInterval(
       used = memoryUsage().rss
       diff = (used - rss)/1048576
       if gcpoint > MAX_MEM_LEAK and diff > MAX_MEM_LEAK
-        clearInterval INTERVAL
-        process.send WORKER_ID
-        setInterval(
-          =>
-            if ING == 0
-              exit()
-            else
-              console.log 'memoryUsage', used, 'leak', diff, 'ING', ING, 'wait auto exit'
-            return
-          3e3
-        )
+        exit()
         return
       else if diff > gcpoint
         gc()

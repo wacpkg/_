@@ -66,12 +66,12 @@ workerNew = (fp, id)=>
   )
 
   w.on 'message', (msg)=>
+    console.log "<< on message", msg
     if Array.isArray msg
       [rid, r] = msg
       ing.get(rid)[1](r)
       ing.delete rid
     else
-      console.log "fork exist", msg
       for i from EVENT_EXP
         w.removeAllListeners(i)
       WORKER[id] = undefined
