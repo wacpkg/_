@@ -9,6 +9,7 @@
 + DAY, PRE_DAY
 
 _day = =>
+# 每200天为一个周期，超过600天的 cookie 认为无效，避免遗失的 cookie 永远被盗
   expire = 200
   DAY = parseInt(new Date()/864e6)%expire
   pre = DAY + expire - 1
