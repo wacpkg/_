@@ -6,16 +6,16 @@
 
 {client:clientId} = ID
 
-+ DAY, PRE_DAY
+MAX_INTERVAL = 41
+BASE = 4096
+
++ DAY
 
 _day = =>
-# 每200天为一个周期，超过600天的 cookie 认为无效，避免遗失的 cookie 永远被盗
-  expire = 200
-  DAY = parseInt(new Date()/864e6)%expire
-  pre = DAY + expire - 1
+  # 每10天为一个周期，超过40个周期没访问就认为无效, base是为了防止数字过大
   # https://chromestatus.com/feature/4887741241229312
   # When cookies are set with an explicit Expires/Max-Age attribute the value will now be capped to no more than 400 days
-  PRE_DAY = [pre%expire,(pre-1)%expire]
+  DAY = parseInt(new Date()/864e6)%BASE
   return
 
 _day()
@@ -64,7 +64,11 @@ _new = ->
   if I
     [day, client_id] = unzipU64 I
     if day != DAY
-      if PRE_DAY.includes day
+      if (
+        (DAY - day) < MAX_INTERVAL
+      ) or (
+        day > DAY and (DAY + BASE - day) < MAX_INTERVAL
+      )
         _set.call @,client_id
       else
         client_id = await _new.call @
