@@ -15,7 +15,7 @@ _day = =>
   # 每10天为一个周期，超过40个周期没访问就认为无效, base是为了防止数字过大
   # https://chromestatus.com/feature/4887741241229312
   # When cookies are set with an explicit Expires/Max-Age attribute the value will now be capped to no more than 400 days
-  DAY = parseInt(new Date()/864e6)%BASE
+  DAY = Number.parseInt(new Date()/864e6)%BASE
   return
 
 _day()
