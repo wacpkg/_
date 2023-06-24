@@ -1,36 +1,27 @@
 > idb > openDB
 
-export SAMPLER_NAME = 'samplerName'
+$ = (db, mode)=>
+  new Proxy(
+    {}
+    get:(_,name)=>
+      tx = db.transaction name,mode
+      tx.objectStore name
+  )
 
-export new Proxy(
+export default new Proxy(
   {}
   get:(_,name)=>
-    (upgrade)=>
-      db = openDB(
+    (ver, upgrade)=>
+      db = await openDB(
         name
-        1
+        ver
         upgrade
       )
-      db
+
+      [
+        db
+        $(db)
+        $(db,'readwrite')
+      ]
 )
 
-# openDB(
-#   'art'
-#   1
-#   # upgrade(db, oldVersion, newVersion, transaction, event)
-#   upgrade:(db)=>
-#     db.createObjectStore(SAMPLER_NAME, keyPath:'id')
-#     return
-# )
-#
-# IDB = await
-# _t = (mode, name)=>
-#   tx = IDB.transaction name,mode
-#   tx.objectStore name
-#
-# export R = _t.bind(_t,undefined)
-#
-# export W = _t.bind(_t,'readwrite')
-#
-#
-# export default IDB
