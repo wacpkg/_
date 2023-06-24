@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 devDependencies:
   '@w5/sdk':
-    specifier: ^0.0.6
-    version: 0.0.6
+    specifier: ^0.0.7
+    version: 0.0.7
   radix-64:
     specifier: ^1.0.4
     version: 1.0.4
@@ -58,8 +58,8 @@ packages:
     dev: true
     optional: true
 
-  /@w5/sdk@0.0.6:
-    resolution: {integrity: sha512-c8Rlz85bTtVXQXARZ98HD9mCEsLPUW72zj7J+afTDd+1mDQ5AXMEY2Di4RAadmxKolhy4g9oeEfik8i6FWjVqQ==}
+  /@w5/sdk@0.0.7:
+    resolution: {integrity: sha512-fnUyGwtdnPyzszlXlrVBg9k6rWNCSVgXHDueLlJrA7mWlnO0TB7o0tlhFiLEG9iaMr2ngr9VzgW2owPeGNdmoQ==}
     dependencies:
       msgpackr: 1.9.5
     dev: true
