@@ -11,11 +11,11 @@ $ = (db, mode)=>
 export default new Proxy(
   {}
   get:(_,name)=>
-    (ver, upgrade)=>
+    (ver, option)=>
       db = await openDB(
         name
         ver
-        upgrade
+        option
       )
 
       [

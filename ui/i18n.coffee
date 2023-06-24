@@ -1,7 +1,7 @@
 > ./req.js > Req
   wtax/utf8d.js
   wtax/getDefault.js:
-  ./IDB.js
+  ./DB.js > R W
   ./lang.js:@ > HOOK
 
 unbin = (pos_li_id_li, word)=>
@@ -25,46 +25,46 @@ unbin = (pos_li_id_li, word)=>
 
   m
 
-DB = new Promise(
-  (resolve, reject)=>
-    db = indexedDB.open('wac.tax', 1)
-    Object.assign(
-      db
-      {
-        onupgradeneeded:(e)=>
-          e.target.result.createObjectStore('i18n', { keyPath: 'id' })
-          return
-        onsuccess: =>
-          DB = db.result
-          resolve()
-          return
-        onerror: reject
-      }
-    )
-    return
-)
+# DB = new Promise(
+#   (resolve, reject)=>
+#     db = indexedDB.open('wac.tax', 1)
+#     Object.assign(
+#       db
+#       {
+#         onupgradeneeded:(e)=>
+#           e.target.result.createObjectStore('i18n', { keyPath: 'id' })
+#           return
+#         onsuccess: =>
+#           DB = db.result
+#           resolve()
+#           return
+#         onerror: reject
+#       }
+#     )
+#     return
+# )
+#
+#
+# RW = new Proxy(
+#   {}
+#   get:(self, name)=>
+#     DB.transaction(name, 'readwrite').objectStore(name)
+# )
 
-
-RW = new Proxy(
-  {}
-  get:(self, name)=>
-    DB.transaction(name, 'readwrite').objectStore(name)
-)
-
-get = new Proxy(
-  {}
-  get:(self, name)=>
-    (key)=>
-      r = DB.transaction(name).objectStore(name).get key
-      new Promise(
-        (resolve,reject)=>
-          Object.assign(
-            r
-            onsuccess:=>resolve r.result
-            onerror:reject
-          )
-      )
-)
+# get = new Proxy(
+#   {}
+#   get:(self, name)=>
+#     (key)=>
+#       r = DB.transaction(name).objectStore(name).get key
+#       new Promise(
+#         (resolve,reject)=>
+#           Object.assign(
+#             r
+#             onsuccess:=>resolve r.result
+#             onerror:reject
+#           )
+#       )
+# )
 
 PKG_REQ = new Map()
 
@@ -94,10 +94,10 @@ export default new Proxy(
 
           pkg_ver = pkg + '/' + ver
           pkg_ver_lang = pkg_ver + '/' + language
-          r = await get.i18n pkg_ver_lang
+          r = await R.i18n.get pkg_ver_lang
           bin = if r then r.v else await do =>
             v=await req(CDN())
-            {i18n} = RW
+            {i18n} = W
             prefix = pkg+'/'
             prefix_len = prefix.length
             i18n.openCursor(
