@@ -83,8 +83,6 @@ export default new Proxy(
         hook = new Set()
 
         setLang = (language)=>
-          if DB instanceof Promise
-            await DB
 
           req = PKG_REQ.getDefault(
             pkg
