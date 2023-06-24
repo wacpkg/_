@@ -1,6 +1,7 @@
 #!/usr/bin/env coffee
 
 > wtax/web/tld.js
+  wtax/sleep.js
   wtax/On.js
 
 _ms = =>
@@ -16,8 +17,6 @@ sameHost = do =>
 
 + TAB_ID, unbindBeforeunload
 
-< USER_SIGNIN = []
-< USER_EXIT = []
 
 initPost = =>
   TAB_ID = _ms()
