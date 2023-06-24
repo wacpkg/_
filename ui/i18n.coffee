@@ -1,6 +1,7 @@
 > ./req.js > Req
   wtax/utf8d.js
   wtax/getDefault.js:
+  ./IDB.js
   ./lang.js:@ > HOOK
 
 unbin = (pos_li_id_li, word)=>
