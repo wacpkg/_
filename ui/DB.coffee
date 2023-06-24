@@ -5,7 +5,11 @@
 [DB,R,W] = await IDB.wac(
   1 # version
   upgrade:(db)=> # upgrade(db, oldVersion, newVersion, transaction, event)
-    db.createObjectStore('i18n', keyPath:'id')
+    for [k,o] from Object.entries {
+      i18n:keyPath:'id'
+      conf:keyPath:'id'
+    }
+      db.createObjectStore k,o
     return
 )
 

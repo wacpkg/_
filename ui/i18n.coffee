@@ -100,8 +100,8 @@ export default new Proxy(
             prefix_len = prefix.length
             i18n.openCursor(
               IDBKeyRange.bound(prefix, prefix+'\uffff', false, true)
-            ).onsuccess = (e)=>
-              c = e.target.result
+            ).then (e)=>
+              c = e?.target.result
               if c
                 {key} = c
                 c_ver = key[ prefix_len..key.indexOf('/',prefix_len)-1 ]
