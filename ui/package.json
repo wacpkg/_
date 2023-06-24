@@ -1,7 +1,7 @@
 {
   "type": "module",
   "devDependencies": {
-    "@w5/sdk": "^0.0.6",
+    "@w5/sdk": "^0.0.7",
     "radix-64": "^1.0.4"
   }
 }
