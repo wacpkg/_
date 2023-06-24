@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+dependencies:
+  idb:
+    specifier: ^7.1.1
+    version: 7.1.1
+
 devDependencies:
   '@w5/sdk':
     specifier: ^0.0.7
@@ -63,6 +68,10 @@ packages:
     dependencies:
       msgpackr: 1.9.5
     dev: true
+
+  /idb@7.1.1:
+    resolution: {integrity: sha512-gchesWBzyvGHRO9W8tzUWFDycow5gwjvFKfyV9FF32Y7F50yZMp7mP+T2mJIWFx49zicqyC4uefHM17o6xKIVQ==}
+    dev: false
 
   /msgpackr-extract@3.0.2:
     resolution: {integrity: sha512-SdzXp4kD/Qf8agZ9+iTu6eql0m3kWm1A2y1hkpTeVNENutaB0BwHlSvAIaMxwntmRUAUjon2V4L8Z/njd0Ct8A==}
