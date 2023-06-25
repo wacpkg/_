@@ -1,6 +1,6 @@
 #!/usr/bin/env coffee
 
-> ./channel.js > toAll HOOK
+> ./channel.js > toAll hook
 
 # 选举领导人
 
@@ -33,7 +33,7 @@ can_i_leader = =>
 
 can_i_leader()
 
-HOOK.set(
+hook(
   MSG_LEADER
   (tab_id, leader)=>
     if leader != undefined

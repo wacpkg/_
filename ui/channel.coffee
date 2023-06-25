@@ -3,7 +3,7 @@
 > wtax/web/tld.js
   wtax/On.js
 
-< HOOK = new Map
+HOOK = new Map
 
 < PREFIX='wac:'
 
@@ -16,6 +16,10 @@ On ALL,{
     HOOK.get(kind)(...data)
     return
 }
+
+< hook = (kind, func)=>
+  HOOK.set kind, func
+  return
 
 < toAll = (kind, msg...)=>
   ALL.postMessage [...msg,kind]
