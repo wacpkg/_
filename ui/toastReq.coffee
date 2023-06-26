@@ -1,6 +1,6 @@
 > ./toast.js > toastErr
 
-< (r)=>
+< (r, url)=>
   status = r.status
   if not [406,412].includes status
     if status
