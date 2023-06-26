@@ -1,4 +1,3 @@
-require './init.scss'
 
 class TOAST
     constructor:->
