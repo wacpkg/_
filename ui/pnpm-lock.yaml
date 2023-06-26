@@ -1,10 +1,5 @@
 lockfileVersion: '6.0'
 
-dependencies:
-  '@w5/escape':
-    specifier: ^0.0.1
-    version: 0.0.1
-
 devDependencies:
   '@w5/sdk':
     specifier: ^0.0.7
@@ -65,16 +60,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@w5/escape@0.0.1:
-    resolution: {integrity: sha512-O3KDNuNNmVK8HeshFcwwRl5YfJystQJtT5vkLPO8irZLPZUa1Az2m056cQAzu2JrJdF1AYelDJhToeOawVwTzQ==}
-    dependencies:
-      '@w5/pair': 0.0.1
-    dev: false
-
-  /@w5/pair@0.0.1:
-    resolution: {integrity: sha512-ooTQPAON5vGBJAZDTteJg8IuDDZetdEfQc1mpG2+oBlMsCQ22pn9VITWRLgJ1lSekdcvOYRsxqaMe5UvDtxyMA==}
-    dev: false
 
   /@w5/sdk@0.0.7:
     resolution: {integrity: sha512-fnUyGwtdnPyzszlXlrVBg9k6rWNCSVgXHDueLlJrA7mWlnO0TB7o0tlhFiLEG9iaMr2ngr9VzgW2owPeGNdmoQ==}
