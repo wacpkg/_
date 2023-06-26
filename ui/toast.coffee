@@ -1,3 +1,4 @@
+> ./toast.styl:
 
 class TOAST
     constructor:->
