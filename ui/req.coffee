@@ -12,32 +12,35 @@ HOOK.set 'json',(r)=> r.json()
 
 
 export default req = (...args)=>
-  n = 0
-  loop
-    try
-      r = await fetch(...args)
-      if r.ok or (304 == r.status)
-        break
-      else
-        throw r
-    catch err
-      if err.name == 'AbortError'
-        return
-      if ++n < 7
-        continue
-      else
-        toastReq err, args[0]
-        throw err
+  try
+    n = 0
+    loop
+      try
+        r = await fetch(...args)
+        if r.ok or (304 == r.status)
+          break
+        else
+          throw r
+      catch err
+        if err.name == 'AbortError'
+          return
+        if ++n < 7
+          continue
+        else
+          throw err
 
-  content = r.headers.get('content-type')
-  if content
-    func = HOOK.get content.slice(content.lastIndexOf('/')+1)
-    if func
-      return func r
-    if content.startsWith 'text/'
-      return r.text()
-  return new Uint8Array await r.arrayBuffer()
-
+    content = r.headers.get('content-type')
+    if content
+      func = HOOK.get content.slice(content.lastIndexOf('/')+1)
+      if func
+        return await func r
+      if content.startsWith 'text/'
+        return await r.text()
+    return new Uint8Array await r.arrayBuffer()
+  catch err
+    throw err
+    toastReq err, args[0]
+  return
 
 ###
 对网址创建请求对象，发出下一个请求的时候，会自动取消之前的请求
