@@ -1,9 +1,10 @@
 > @w5/sdk
+  @w5/escape
   ./gen/sdkThrow.js
   ./CDN.js > set:cdnSet
   ./lang.js:@ > HOOK
   !/DEV
-  ./toast.js:
+  ./toast.js > toastErr
 
 [proxy, sdkInit, setLang] = sdk(
   (r, next, url, req_option)=>
@@ -12,7 +13,7 @@
         r = await t(r, next, url, req_option)
         if not ( r instanceof Response )
           return r
-    toast.err(url+' ❯ '+r.toString())
+    toastErr escape(url+' ❯ '+r.toString())
     throw r
     return
 )

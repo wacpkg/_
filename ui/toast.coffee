@@ -60,10 +60,10 @@ class TOAST
 
 TOAST = new TOAST()
 
-window.toast = (args...)->
+export toast = (args...)->
     TOAST.new(...args)
 
-toast.err = (args...)=>
+export toastErr = (args...)=>
   elem = toast(...args)
   elem.classList.add 'ERR'
   elem
