@@ -23,7 +23,9 @@
       else
         toastErr args[0] + '❯' + err.toString()
         throw err
-  if r.headers.get('content-type').endsWith('/json')
+  # text/x-script
+  content = r.headers.get('content-type')
+  if content.endsWith('/json')
     return r.json()
   else
     return new Uint8Array await r.arrayBuffer()

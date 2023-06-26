@@ -2,8 +2,10 @@
   "type": "module",
   "devDependencies": {
     "@w5/sdk": "^0.0.7",
-    "radix-64": "^1.0.4",
-    "idb": "^7.1.1"
+    "idb": "^7.1.1",
+    "radix-64": "^1.0.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@w5/escape": "^0.0.1"
+  }
 }
