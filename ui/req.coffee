@@ -28,6 +28,8 @@ HOOK.set 'json',(r)=> r.json()
       else
         toastReq err, args[0]
         throw err
+
+  content = r.headers.get('content-type') or ''
   func = HOOK.get content.slice(content.lastIndexOf('/')+1)
   if func
     return func r

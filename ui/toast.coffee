@@ -18,7 +18,7 @@ class TOAST
 
       {timeout, body, close, html} = Object.assign(
           {
-              timeout:5
+              timeout:9
               body
               close:1
           }
