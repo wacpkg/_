@@ -4,8 +4,12 @@
 
 < TAB_ID = ((Math.floor(new Date)%9007199254739) * 1e3) + Math.floor(Math.random()*1e3)
 
-
 MSG_LEADER = 1
+
+send = (msg...)=>
+  toAll(MSG_LEADER, TAB_ID, ...msg)
+  return
+
 
 + I_LEADER, LEADER, unbindBeforeunload, I_LEADER_TIMER
 
@@ -15,10 +19,10 @@ MSG_LEADER = 1
   unbindBeforeunload = On window,{
     beforeunload:=>
       I_LEADER = LEADER = undefined
-      toAll(MSG_LEADER, TAB_ID, 0)
+      send(0)
       return
   }
-  toAll(MSG_LEADER, TAB_ID, 1)
+  send(1)
   document.title = 'leader'
   return
 
@@ -43,7 +47,7 @@ hook(
       else # 新的 leader 诞生了
         if I_LEADER
           if TAB_ID < tab_id
-            toAll(MSG_LEADER, TAB_ID, 1)
+            send(1)
           else
             # 放弃领导权
             下台()
@@ -51,9 +55,9 @@ hook(
         else
           LEADER = tab_id
     else if I_LEADER
-      toAll(MSG_LEADER, TAB_ID, 1)
+      send(1)
     return
 )
 
 我想上位(200 + Math.random()*100)
-toAll(MSG_LEADER, TAB_ID)
+send()
