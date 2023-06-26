@@ -5,6 +5,6 @@
     "./*": "./*"
   },
   "dependencies": {
-    "@w5/redis_lua": "^0.0.11"
+    "@w5/redis_lua": "^0.0.14"
   }
 }
