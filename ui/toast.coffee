@@ -1,3 +1,6 @@
+div = =>
+  document.createElement 'div'
+
 class TOAST
     constructor:->
         @_li = []
@@ -26,14 +29,15 @@ class TOAST
       )
 
       li = @_li
-      elem = document.createElement("div")
+      elem = div()
       elem.className = "animated fadeInLeft toast"
       elem.style.marginBottom = @_offset+'px'
+      inner = div()
       if html
-        elem.innerHTML = msg
+        inner.innerHTML = msg
       else
-        elem.innerText = msg
-
+        inner.innerText = msg
+      elem.appendChild inner
       if close
         close_i = document.createElement 'i'
         close_i.className = 'x'
