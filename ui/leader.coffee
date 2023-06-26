@@ -1,4 +1,5 @@
 > ./channel.js > toAll hook
+  !/_/On.js
 
 ms = => + new Date
 # 选举领导人
@@ -15,6 +16,8 @@ send1 = => send(1)
 
 + I_LEADER, LEADER, unbindBeforeunload, I_LEADER_TIMER, INTERVAL
 
+< ON = new Set # 上位传入 1 下台传入 0
+
 LEADER_HEARTBEAT = ms()
 
 上位 = =>
@@ -24,6 +27,8 @@ LEADER_HEARTBEAT = ms()
     beforeunload:=>
       I_LEADER = LEADER = undefined
       send(0) # 我下台了
+      for func from ON
+        func 1
       return
   }
   _setInterval send1
@@ -55,7 +60,11 @@ _setInterval heartbeat
 
 下台 = =>
   I_LEADER = undefined
-  unbindBeforeunload?()
+  if unbindBeforeunload
+    unbindBeforeunload()
+    unbindBeforeunload = undefined
+    for func from ON
+      func 0
   _setInterval heartbeat
   return
 
@@ -66,7 +75,8 @@ hook(
       clearTimeout I_LEADER_TIMER
       switch leader
         when 0 # leader 被关了
-          我想上位(Math.random()*20)
+          if not I_LEADER
+            我想上位(Math.random()*20)
         when 1# 新的 leader 诞生了
           LEADER_HEARTBEAT = ms()
           if I_LEADER
