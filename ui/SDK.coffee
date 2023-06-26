@@ -4,7 +4,7 @@
   ./CDN.js > set:cdnSet
   ./lang.js:@ > HOOK
   !/DEV
-  ./toast.js > toastErr
+  ./toastReq.js
 
 [proxy, sdkInit, setLang] = sdk(
   (r, next, url, req_option)=>
@@ -13,18 +13,7 @@
         r = await t(r, next, url, req_option)
         if not ( r instanceof Response )
           return r
-
-    status = r?.status
-    if not [406,412].includes status
-      if status
-        tip = status
-        try
-          tip += (' : '+await r.text())
-        catch
-          null
-      else
-        tip = r.toString()
-      toastErr escape(url+' ❯ '+tip)
+    toastReq r
     throw r
     return
 )
