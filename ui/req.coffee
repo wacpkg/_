@@ -11,7 +11,7 @@ export HOOK = new Map
 HOOK.set 'json',(r)=> r.json()
 
 
-< req = (...args)=>
+export default (...args)=>
   n = 0
   loop
     try
