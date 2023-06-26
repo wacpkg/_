@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@w5/redis_lua':
-    specifier: ^0.0.10
-    version: 0.0.10
+    specifier: ^0.0.11
+    version: 0.0.11
 
 packages:
 
@@ -11,8 +11,8 @@ packages:
     resolution: {integrity: sha512-F6Ihmj2XeJ7pvYDGlWj5lK+BTbqB8HXlLz7IkF/EAUe5vtQmD9HGCGy7MP8FFwER7h8aXilpd0kN9/2zGlh0JQ==}
     dev: false
 
-  /@w5/redis_lua@0.0.10:
-    resolution: {integrity: sha512-k4i5A16/VdlFY+DXP6mmmMSHzVARTS+hFJLlA2mFxiPiOcunHkvYJN1zqTDGSwfPhjCP7389g1AZ1TExF0thrA==}
+  /@w5/redis_lua@0.0.11:
+    resolution: {integrity: sha512-5FE/q3FPFh+ksuD0gDYv4RsMaekI7WcqgF7WLVNXvIdKBScwtxvi4O5Zhmepu7b3bXbg9U0nDNpDuMbhTfrtrQ==}
     dependencies:
       '@w5/dot': 0.0.2
       '@w5/u8': 0.0.1
