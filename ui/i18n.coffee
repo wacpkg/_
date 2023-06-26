@@ -1,5 +1,5 @@
 > ./req.js > Req
-  wtax/utf8d.js
+  ./utf8d.js
   wtax/getDefault.js:
   ./DB.js > R W
   ./lang.js:@ > HOOK
