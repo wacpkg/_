@@ -29,12 +29,14 @@ export default req = (...args)=>
         toastReq err, args[0]
         throw err
 
-  content = r.headers.get('content-type') or ''
-  func = HOOK.get content.slice(content.lastIndexOf('/')+1)
-  if func
-    return func r
-  else
-    return new Uint8Array await r.arrayBuffer()
+  content = r.headers.get('content-type')
+  if content
+    func = HOOK.get content.slice(content.lastIndexOf('/')+1)
+    if func
+      return func r
+    if content.startsWith 'text/'
+      return r.text()
+  return new Uint8Array await r.arrayBuffer()
 
 
 ###
