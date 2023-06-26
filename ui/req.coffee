@@ -6,6 +6,11 @@
 
 > ./toastReq.js
 
+export HOOK = new Map
+
+HOOK.set 'json',(r)=> r.json()
+
+
 < req = (...args)=>
   n = 0
   loop
@@ -23,10 +28,9 @@
       else
         toastReq err, args[0]
         throw err
-  # text/x-script
-  content = r.headers.get('content-type')
-  if content.endsWith('/json')
-    return r.json()
+  func = HOOK.get content.slice(content.lastIndexOf('/')+1)
+  if func
+    return func r
   else
     return new Uint8Array await r.arrayBuffer()
 
