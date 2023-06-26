@@ -36,8 +36,8 @@ export default req = (...args)=>
         return await func r
     return new Uint8Array await r.arrayBuffer()
   catch err
-    throw err
     toastReq err, args[0]
+    throw err
   return
 
 ###
