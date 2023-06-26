@@ -16,7 +16,7 @@ class TOAST
       if not body
         body = document.body
 
-      {timeout, body, close} = Object.assign(
+      {timeout, body, close, html} = Object.assign(
           {
               timeout:5
               body
@@ -31,7 +31,10 @@ class TOAST
       elem = document.createElement("div")
       elem.className = "animated fadeInLeft toast"
       elem.style.marginBottom = @_offset+'px'
-      elem.innerHTML = msg
+      if html
+        elem.innerHTML = msg
+      else
+        elem.innerText = msg
       # elem = $ """<div class="" style=>#{msg}</div>"""
       li.push elem
       body.appendChild elem

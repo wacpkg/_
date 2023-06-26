@@ -1,5 +1,4 @@
 > @w5/sdk
-  @w5/escape
   ./gen/sdkThrow.js
   ./CDN.js > set:cdnSet
   ./lang.js:@ > HOOK
