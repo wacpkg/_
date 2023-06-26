@@ -3,6 +3,7 @@
   ./CDN.js > set:cdnSet
   ./lang.js:@ > HOOK
   !/DEV
+  ./toast.js:
 
 [proxy, sdkInit, setLang] = sdk(
   (r, next, url, req_option)=>

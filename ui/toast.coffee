@@ -1,5 +1,3 @@
-> ./toast.styl:
-
 class TOAST
     constructor:->
         @_li = []
@@ -9,50 +7,46 @@ class TOAST
         {timeout, body, close} = Object.assign(
             {
                 timeout:5
-                body:$('body')
-                close:0
+                body:document.body
+                close:1
             }
             option
         )
         if close
-            _ = $.html()
-            _ msg
-            _ "<i "
-            if typeof(close)=='string'
-                _ """title="#{close}" """
-            _ """class="I-close I"></i>"""
-            msg = _.html()
+          msg+='<i class="x"></i>'
 
         li = @_li
-        elem = $ """<div class="animated fadeInLeft toast" style="margin-bottom:#{@_offset}px;">#{msg}</div>"""
+        elem = document.createElement("div")
+        elem.className = "animated fadeInLeft toast"
+        elem.style.marginBottom = @_offset+'px'
+        elem.innerHTML = msg
+        # elem = $ """<div class="" style=>#{msg}</div>"""
         li.push elem
-        body.append(
-            elem
-        )
-        @_offset += (18+elem.height())
-        elem.close = =>
-            elem.addClass "fadeOutLeft"
+        body.appendChild elem
+        @_offset += (14+elem.offsetHeight)
+        elem.close = close = =>
+            elem.classList.add "fadeOutLeft"
             setTimeout(
                 =>
                     li.splice li.indexOf(elem), 1
-                    elem.remove()
+                    body.removeChild elem
                     offset = 0
                     for i,pos in li
-                        i.css "margin-bottom", offset
-                        offset += (18+i.height())
+                        i.style.marginBottom = offset+'px'
+                        offset += (14+i.offsetHeight)
                     @_offset = offset
                 500
             )
         if close
-            elem.find('.I-close').click elem.close
+          elem.getElementsByClassName("x")[0].onclick = close
         if timeout
-            setTimeout(
-                elem.close
-                timeout*1000
-            )
+          setTimeout(
+              close
+              timeout*1000
+          )
         return elem
 
 TOAST = new TOAST()
 
-$.toast = ->
+window.toast = ->
     TOAST.new.apply TOAST, arguments
