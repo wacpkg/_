@@ -5,10 +5,6 @@
   _focus = =>
     focus = Focus form
     focus()
-    setTimeout(
-      focus
-      500
-    )
     return
   _focus()
   On form,{

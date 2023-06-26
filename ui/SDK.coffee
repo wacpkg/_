@@ -12,7 +12,7 @@
         r = await t(r, next, url, req_option)
         if not ( r instanceof Response )
           return r
-    toast.err(url+' '+r.toString())
+    toast.err(url+' ❯ '+r.toString())
     throw r
     return
 )
