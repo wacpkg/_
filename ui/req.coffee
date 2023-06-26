@@ -3,6 +3,9 @@
 * 如响应的content-type以/json结尾，则返回对象;否则返回Uint8Array
 * 在网络故障的时候，自动重试
 ###
+
+> ./toast.js > toastErr
+
 < req = (...args)=>
   n = 0
   loop
@@ -18,6 +21,7 @@
       if ++n < 7
         continue
       else
+        toastErr args[0] + '❯' + err.toString()
         throw err
   if r.headers.get('content-type').endsWith('/json')
     return r.json()
