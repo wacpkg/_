@@ -4,7 +4,7 @@
 * 在网络故障的时候，自动重试
 ###
 
-> ./toast.js > toastErr
+> ./toastReq.js
 
 < req = (...args)=>
   n = 0
@@ -21,7 +21,7 @@
       if ++n < 7
         continue
       else
-        toastErr args[0] + '❯' + err.toString()
+        toastReq err, args[0]
         throw err
   # text/x-script
   content = r.headers.get('content-type')
