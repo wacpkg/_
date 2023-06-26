@@ -24,8 +24,6 @@ class TOAST
           }
           option
       )
-      if close
-        msg+='<i class="x"></i>'
 
       li = @_li
       elem = document.createElement("div")
@@ -35,11 +33,16 @@ class TOAST
         elem.innerHTML = msg
       else
         elem.innerText = msg
+
+      if close
+        close_i = document.createElement 'i'
+        close_i.className = 'x'
+        elem.appendChild close_i
       # elem = $ """<div class="" style=>#{msg}</div>"""
       li.push elem
       body.appendChild elem
       @_offset += (14+elem.offsetHeight)
-      elem.close = close = =>
+      elem.close = close_func = =>
           elem.classList.add "fadeOutLeft"
           setTimeout(
               =>
@@ -53,10 +56,10 @@ class TOAST
               500
           )
       if close
-        elem.getElementsByClassName("x")[0].onclick = close
+        close_i.onclick = close_func
       if timeout
         setTimeout(
-            close
+            close_func
             timeout*1000
         )
       return elem

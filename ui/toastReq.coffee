@@ -11,5 +11,5 @@
         null
     else
       tip = r.toString()
-    toastErr escape(url+' ❯ '+tip)
+    toastErr url+' ❯ '+tip
   return
