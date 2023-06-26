@@ -22,11 +22,10 @@ MSG_LEADER = 1
   document.title = 'leader'
   return
 
-can_i_leader = (timeout)=>
+我想上位 = (timeout)=>
   I_LEADER_TIMER = setTimeout(
     上位
     timeout
-
   )
   return
 
@@ -40,7 +39,7 @@ hook(
     if leader != undefined
       clearTimeout I_LEADER_TIMER
       if leader == 0 # leader 被关了
-        can_i_leader(Math.random()*20)
+        我想上位(Math.random()*20)
       else # 新的 leader 诞生了
         if I_LEADER
           if TAB_ID < tab_id
@@ -56,5 +55,5 @@ hook(
     return
 )
 
-can_i_leader(200 + Math.random()*100)
+我想上位(200 + Math.random()*100)
 toAll(MSG_LEADER, TAB_ID)
