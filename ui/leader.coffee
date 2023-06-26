@@ -27,12 +27,12 @@ LEADER_HEARTBEAT = ms()
     beforeunload:=>
       I_LEADER = LEADER = undefined
       send(0) # 我下台了
-      for func from ON
-        func 1
       return
   }
   _setInterval send1
   send1()
+  for func from ON
+    func 1
   return
 
 我想上位 = (timeout)=>
@@ -60,12 +60,12 @@ _setInterval heartbeat
 
 下台 = =>
   I_LEADER = undefined
+  _setInterval heartbeat
   if unbindBeforeunload
     unbindBeforeunload()
     unbindBeforeunload = undefined
     for func from ON
       func 0
-  _setInterval heartbeat
   return
 
 hook(
