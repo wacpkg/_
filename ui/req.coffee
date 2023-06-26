@@ -34,8 +34,6 @@ export default req = (...args)=>
       func = HOOK.get content.slice(content.lastIndexOf('/')+1)
       if func
         return await func r
-      if content.startsWith 'text/'
-        return await r.text()
     return new Uint8Array await r.arrayBuffer()
   catch err
     throw err
