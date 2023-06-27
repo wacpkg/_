@@ -2,7 +2,9 @@
 
 $ = (db, mode)=>
   new Proxy(
-    {}
+    (args...)=>
+      tx = db.transaction args,mode
+      args.map((name)=>tx.objectStore(name))
     get:(_,name)=>
       tx = db.transaction name,mode
       tx.objectStore name
