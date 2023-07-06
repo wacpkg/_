@@ -25,9 +25,6 @@ On ALL,{
   ALL.postMessage [...msg,kind]
   return
 
-
-
-
 # MSG_NEW = 1
 # LEADER = 0
 # NEW_REPLY = []

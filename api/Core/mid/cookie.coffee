@@ -63,6 +63,7 @@ _new = ->
 
   if I
     [day, client_id] = unzipU64 I
+    console.log {day,client_id}
     if day != DAY
       if (
         (DAY - day) < MAX_INTERVAL
