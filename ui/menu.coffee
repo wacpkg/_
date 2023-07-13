@@ -1,6 +1,6 @@
 > wtax/On.js
 
-< ({content}, bind, onRm)=>
+< ({content}, bind, rm)=>
   ({target})->
     {parentNode} = target
     if target.menu
@@ -13,7 +13,7 @@
     setTimeout =>
       unbind = On document.body,{
         click:=>
-          onRm?()
+          rm?.call(target)
           delete target.menu
           setTimeout(
             =>
