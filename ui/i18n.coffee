@@ -98,22 +98,21 @@ export default new Proxy(
             {i18n} = W
             prefix = pkg+'/'
             prefix_len = prefix.length
-            i18n.openCursor(
+            c = await i18n.openCursor(
               IDBKeyRange.bound(prefix, prefix+'\uffff', false, true)
-            ).then (e)=>
-              c = e?.target.result
-              if c
+            )
+            if c
+              while c
                 {key} = c
                 c_ver = key[ prefix_len..key.indexOf('/',prefix_len)-1 ]
                 if c_ver != ver
                   i18n.delete(key)
-                c.continue()
-              else
-                i18n.put {
-                  id:pkg_ver_lang
-                  v
-                }
-              return
+                c = await c.continue()
+            else
+              i18n.put {
+                id:pkg_ver_lang
+                v
+              }
             v
 
           bin = do =>
