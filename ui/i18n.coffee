@@ -138,7 +138,7 @@ export default new Proxy(
             )
           )
           for f from hook
-            f i18n_li
+            f i18n_li, language
           return
 
         setTimeout =>
