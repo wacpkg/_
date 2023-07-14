@@ -108,11 +108,10 @@ export default new Proxy(
                 if c_ver != ver
                   i18n.delete(key)
                 c = await c.continue()
-            else
-              i18n.put {
-                id:pkg_ver_lang
-                v
-              }
+            i18n.put {
+              id:pkg_ver_lang
+              v
+            }
             v
 
           bin = do =>
