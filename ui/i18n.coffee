@@ -149,8 +149,9 @@ export default new Proxy(
         [
           I18N
           (next)=>
-            if Array.isArray I18N
-              next I18N, lang()
+            if I18N.length > 1
+              l = lang()
+            next I18N, l
             hook.add(next)
             =>
               =>
