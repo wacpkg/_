@@ -149,7 +149,9 @@ export default new Proxy(
         [
           I18N
           (next)=>
-            next I18N
+            l = lang()
+            if l
+              next I18N, l
             hook.add(next)
             =>
               =>
