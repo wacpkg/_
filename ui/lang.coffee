@@ -30,6 +30,13 @@ bodyCls = (l)=>
 
 NOSPACE = new Set([ 'ja', 'km', 'lo', 'th', 'zh-TW', 'zh' ])
 
+setSpace = (l)=>
+  if NOSPACE.has l
+    SPACE = ''
+  else
+    SPACE = ' '
+  return
+
 do =>
   for i in navigator.languages
     value = exist(i)
@@ -38,16 +45,14 @@ do =>
       break
 
   bodyCls NOW = exist(L.lang) or DEFAULT_LANG or LANG[0][0]
-  if NOSPACE.has NOW
-    SPACE = ''
-  else
-    SPACE = ' '
+  setSpace(NOW)
   return
 
 < HOOK = new Set()
 
 < set = (l)=>
   if exist(l) and l!=NOW
+    setSpace l
     if l == DEFAULT_LANG
       delete L.lang
     else
