@@ -75,10 +75,11 @@ hook(
           if not I_LEADER
             我想上位(Math.random()*20)
         when 1# 新的 leader 诞生了
-          LEADER_HEARTBEAT = ms()
           if I_LEADER
-            # 放弃领导权
-            下台()
+            if ms() - LEADER_HEARTBEAT > 1e3
+              # 放弃领导权
+              下台()
+      LEADER_HEARTBEAT = ms()
     else if I_LEADER # 响应新窗口的空请求
       send(1)
     return
