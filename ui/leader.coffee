@@ -79,7 +79,7 @@ hook(
           if I_LEADER
             # 放弃领导权
             下台()
-    else if I_LEADER
+    else if I_LEADER # 响应新窗口的空请求
       send(1)
     return
 )
