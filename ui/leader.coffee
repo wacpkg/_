@@ -4,28 +4,25 @@
 ms = => + new Date
 # 选举领导人
 
-< TAB_ID = ((Math.floor(new Date)%9007199254739) * 1e3) + Math.floor(Math.random()*1e3)
-
 MSG_LEADER = 1
 
 send = (msg...)=>
-  toAll(MSG_LEADER, TAB_ID, ...msg)
+  toAll(MSG_LEADER, 1, ...msg)
   return
 
 send1 = => send(1)
 
-+ I_LEADER, LEADER, unbindBeforeunload, I_LEADER_TIMER, INTERVAL
++ I_LEADER, unbindBeforeunload, I_LEADER_TIMER, INTERVAL
 
 < ON = new Set # 上位传入 1 下台传入 0
 
 LEADER_HEARTBEAT = ms()
 
 上位 = =>
-  LEADER = TAB_ID
   I_LEADER = 1
   unbindBeforeunload = On window,{
     beforeunload:=>
-      I_LEADER = LEADER = undefined
+      I_LEADER = undefined
       send(0) # 我下台了
       return
   }
@@ -80,14 +77,8 @@ hook(
         when 1# 新的 leader 诞生了
           LEADER_HEARTBEAT = ms()
           if I_LEADER
-            if TAB_ID < tab_id
-              send(1)
-            else
-              # 放弃领导权
-              下台()
-              LEADER = tab_id
-          else
-            LEADER = tab_id
+            # 放弃领导权
+            下台()
     else if I_LEADER
       send(1)
     return
