@@ -1,7 +1,7 @@
 {
   "type": "module",
   "devDependencies": {
-    "@w5/sdk": "^0.0.7",
+    "@w5/sdk": "^0.0.8",
     "idb": "^7.1.1",
     "radix-64": "^1.0.4"
   },

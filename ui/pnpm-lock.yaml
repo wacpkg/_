@@ -1,9 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 devDependencies:
   '@w5/sdk':
-    specifier: ^0.0.7
-    version: 0.0.7
+    specifier: ^0.0.8
+    version: 0.0.8
   idb:
     specifier: ^7.1.1
     version: 7.1.1
@@ -61,10 +65,10 @@ packages:
     dev: true
     optional: true
 
-  /@w5/sdk@0.0.7:
-    resolution: {integrity: sha512-fnUyGwtdnPyzszlXlrVBg9k6rWNCSVgXHDueLlJrA7mWlnO0TB7o0tlhFiLEG9iaMr2ngr9VzgW2owPeGNdmoQ==}
+  /@w5/sdk@0.0.8:
+    resolution: {integrity: sha512-e+XcwiSYsFuKHkFRtiP+Mjn1QgjfNPu4C5Sy73rby0jMGhc/eluj3eJMgxIgu9ycvz7zyAQlWlcDtXhEoLuCBg==}
     dependencies:
-      msgpackr: 1.9.5
+      msgpackr: 1.9.7
     dev: true
 
   /idb@7.1.1:
@@ -87,8 +91,8 @@ packages:
     dev: true
     optional: true
 
-  /msgpackr@1.9.5:
-    resolution: {integrity: sha512-/IJ3cFSN6Ci3eG2wLhbFEL6GT63yEaoN/R5My2QkV6zro+OJaVRLPlwvxY7EtHYSmDlQpk8stvOQTL2qJFkDRg==}
+  /msgpackr@1.9.7:
+    resolution: {integrity: sha512-baUNaLvKQvVhzfWTNO07njwbZK1Lxjtb0P1JL6/EhXdLTHzR57/mZqqJC39TtQKvOmkJA4pcejS4dbk7BDgLLA==}
     optionalDependencies:
       msgpackr-extract: 3.0.2
     dev: true
