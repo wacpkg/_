@@ -7,7 +7,7 @@
 
 [proxy, sdkInit, setLang] = sdk(
   (r, next, url, req_option)=>
-    iErrorf not ( r instanceof Error )
+    if not ( r instanceof Error )
       for t from sdkThrow
         r = await t(r, next, url, req_option)
         if not ( r instanceof Response )
