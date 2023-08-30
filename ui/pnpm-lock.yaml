@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@w5/sdk':
-    specifier: ^0.0.8
-    version: 0.0.8
+    specifier: ^0.0.10
+    version: 0.0.10
   idb:
     specifier: ^7.1.1
     version: 7.1.1
@@ -65,8 +65,8 @@ packages:
     dev: true
     optional: true
 
-  /@w5/sdk@0.0.8:
-    resolution: {integrity: sha512-e+XcwiSYsFuKHkFRtiP+Mjn1QgjfNPu4C5Sy73rby0jMGhc/eluj3eJMgxIgu9ycvz7zyAQlWlcDtXhEoLuCBg==}
+  /@w5/sdk@0.0.10:
+    resolution: {integrity: sha512-Q6kbTh7w+tu/5EUPkjN0aO171UUwTIYuTB6K1TE7pzRkF9HTD1LqCmGcUuuqyVYf/1ARHYzUdhNT5OSHL8RNNA==}
     dependencies:
       msgpackr: 1.9.7
     dev: true
