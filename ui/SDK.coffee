@@ -7,13 +7,14 @@
 
 [proxy, sdkInit, setLang] = sdk(
   (r, next, url, req_option)=>
-    if not ( r instanceof Error )
+    iErrorf not ( r instanceof Error )
       for t from sdkThrow
         r = await t(r, next, url, req_option)
         if not ( r instanceof Response )
           return r
-    toastReq r, url
-    throw r
+    if r.name != 'AbortError'
+      toastReq r, url
+      throw r
     return
 )
 
