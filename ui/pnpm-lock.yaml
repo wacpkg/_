@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@w5/sdk':
-    specifier: ^0.0.10
-    version: 0.0.10
+    specifier: ^0.0.12
+    version: 0.0.12
   idb:
     specifier: ^7.1.1
     version: 7.1.1
@@ -65,10 +65,10 @@ packages:
     dev: true
     optional: true
 
-  /@w5/sdk@0.0.10:
-    resolution: {integrity: sha512-Q6kbTh7w+tu/5EUPkjN0aO171UUwTIYuTB6K1TE7pzRkF9HTD1LqCmGcUuuqyVYf/1ARHYzUdhNT5OSHL8RNNA==}
+  /@w5/sdk@0.0.12:
+    resolution: {integrity: sha512-KQDeRBziIbGX7HGF/6n50QUW4x2NnWxBEh11YZ2P/d4fVtXNqu87Gox/KVIxPRl64Y5EHX0XOa28mSBqUXGrJw==}
     dependencies:
-      msgpackr: 1.9.7
+      msgpackr: 1.9.8
     dev: true
 
   /idb@7.1.1:
@@ -91,8 +91,8 @@ packages:
     dev: true
     optional: true
 
-  /msgpackr@1.9.7:
-    resolution: {integrity: sha512-baUNaLvKQvVhzfWTNO07njwbZK1Lxjtb0P1JL6/EhXdLTHzR57/mZqqJC39TtQKvOmkJA4pcejS4dbk7BDgLLA==}
+  /msgpackr@1.9.8:
+    resolution: {integrity: sha512-dQvfSMSIQ9kXXQTlJFDq+f7J3RrmydhI6Tn23lFy7BItp7zDR3nH70CHk2QIfs2copLSaKRv/PPjMbNSTFu2hA==}
     optionalDependencies:
       msgpackr-extract: 3.0.2
     dev: true
@@ -100,6 +100,7 @@ packages:
   /node-gyp-build-optional-packages@5.0.7:
     resolution: {integrity: sha512-YlCCc6Wffkx0kHkmam79GKvDQ6x+QZkMjFGrIMxgFNILFvGSbCp2fCBC55pGTT9gVaz8Na5CLmxt/urtzRv36w==}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
