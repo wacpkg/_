@@ -1,5 +1,4 @@
 > @w5/sdk
-  ./gen/sdkThrow.js
   ./CDN.js > set:cdnSet
   ./lang.js:@ > HOOK
   !/DEV
@@ -8,7 +7,7 @@
 [proxy, sdkInit, setLang] = sdk(
   (r, next, url, req_option)=>
     if not ( r instanceof Error )
-      for t from sdkThrow
+      for t from (await import('./gen/sdkThrow.js')).default
         r = await t(r, next, url, req_option)
         if not ( r instanceof Response )
           return r
