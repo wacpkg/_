@@ -17,17 +17,18 @@ export default req = (...args)=>
     loop
       try
         r = await fetch(...args)
-        if r.ok or (304 == r.status)
+        {status} = r
+        if [200,301,304].includes status
           break
         else
           throw r
       catch err
         if err.name == 'AbortError'
           return
-        if ++n < 7
-          continue
-        else
-          throw err
+        if status != 404
+          if ++n < 7
+            continue
+        throw err
 
     content = r.headers.get('content-type')
     if content
