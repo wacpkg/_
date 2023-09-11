@@ -19,7 +19,9 @@ On ALL,{
 
 < hook = (kind, func)=>
   HOOK.set kind, func
-  return
+  =>
+    HOOK.delete kind
+    return
 
 < toAll = (kind, msg...)=>
   ALL.postMessage [...msg,kind]
