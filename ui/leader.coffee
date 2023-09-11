@@ -7,28 +7,34 @@ ms = => + new Date
 MSG_LEADER = 1
 
 send = (msg...)=>
-  toAll(MSG_LEADER, 1, ...msg)
+  toAll(MSG_LEADER, ...msg)
   return
 
 send1 = => send(1)
 
 + I_LEADER, unbindBeforeunload, I_LEADER_TIMER, INTERVAL
 
-< ON = new Set # 上位传入 1 下台传入 0
+CHANGE = new Set # 上位传入 1 下台传入 0
 
 LEADER_HEARTBEAT = ms()
+
+export ON = (func)=>
+  CHANGE.add func
+  if I_LEADER != undefined
+    func I_LEADER
+  return
 
 上位 = =>
   I_LEADER = 1
   unbindBeforeunload = On window,{
     beforeunload:=>
-      I_LEADER = undefined
+      I_LEADER = 0
       send(0) # 我下台了
       return
   }
   _setInterval send1
   send1()
-  for func from ON
+  for func from CHANGE
     func 1
   return
 
@@ -56,18 +62,22 @@ _setInterval = (func)=>
 _setInterval heartbeat
 
 下台 = =>
-  I_LEADER = undefined
+  I_LEADER = 0
   _setInterval heartbeat
   if unbindBeforeunload
     unbindBeforeunload()
     unbindBeforeunload = undefined
-    for func from ON
-      func 0
+    我不是领导()
+  return
+
+我不是领导 = =>
+  for func from CHANGE
+    func 0
   return
 
 hook(
   MSG_LEADER
-  (tab_id, leader)=>
+  (leader)=>
     if leader != undefined
       clearTimeout I_LEADER_TIMER
       switch leader
@@ -79,6 +89,9 @@ hook(
             if ms() - LEADER_HEARTBEAT > 1e3
               # 放弃领导权
               下台()
+          else if I_LEADER == undefined
+            I_LEADER = 0
+            我不是领导()
       LEADER_HEARTBEAT = ms()
     else if I_LEADER # 响应新窗口的空请求
       send(1)
