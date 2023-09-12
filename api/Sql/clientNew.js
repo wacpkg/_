@@ -27,9 +27,9 @@ export default (
 		client_id,
 		ip,
 		browser_name or '',
-		browser_ver or '',
+		browser_ver or 0,
 		os_name or '',
-		os_ver or '',
+		os_ver or 0,
 		device_vendor or '',
 		device_model or '',
 	);
