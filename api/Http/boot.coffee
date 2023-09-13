@@ -45,10 +45,22 @@ setInterval(
   1e4
 )
 
-process.on 'exit',=>
+hookExit = =>
+  if WORKER.length == 0
+    process.exit(0)
+    return
   for i in WORKER
     if i
       i.send -1
+  hookExit = =>
+    return
+  return
+
+for i from ['SIGTERM', 'SIGUSR2', 'SIGUSR1', 'exit', 'SIGINT']
+  process.on i, hookExit
+
+process.on 'uncaughtException', (err)=>
+  console.error 'uncaughtException', err
   return
 
 workerNew = (fp, id)=>
@@ -67,7 +79,7 @@ workerNew = (fp, id)=>
 
   w.send id
   w.on 'message', (msg)=>
-    console.log "<< on message", msg
+    console.log "❮", msg
     if Array.isArray msg
       [rid, r] = msg
       ing.get(rid)[1](r)
