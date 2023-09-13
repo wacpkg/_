@@ -13,7 +13,7 @@
 
 onMount =>
   await tick()
-  t = await gen(I18N)
+  t = await gen()
   return
 </script>
 

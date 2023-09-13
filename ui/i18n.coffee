@@ -22,7 +22,6 @@ unbin = (pos_li_id_li, word)=>
     if _id != undefined
       id = _id
     id++
-
   m
 
 # DB = new Promise(
