@@ -45,13 +45,22 @@ setInterval(
   1e4
 )
 
++ KILL
+
+kill = =>
+ n = 0
+ for i in WORKER
+   if i
+     i.send -1
+     ++n
+ if n == 0
+   process.exit(0)
+ return
+
+
 hookExit = =>
-  if WORKER.length == 0
-    process.exit(0)
-    return
-  for i in WORKER
-    if i
-      i.send -1
+  KILL = 1
+  kill()
   hookExit = =>
     return
   return
@@ -89,6 +98,8 @@ workerNew = (fp, id)=>
         w.removeAllListeners(i)
       WORKER[id] = undefined
       WORKER_ING[id] = ing = new Map
+      if KILL
+        kill()
     return
 
   WORKER[id] = w
