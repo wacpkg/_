@@ -17,10 +17,10 @@
       #: '您好 '+new Date
       text
       #: 'text 天气不错 Hello world?'
-      html
       #: '<b>天气不错 html Hello world?</b><h1>'+new Date+'</h1>'
   }
-
+  if html
+    mail.html = html
   try
     transporter = nodemailer.createTransport(SMTP)
     await transporter.sendMail(mail)
